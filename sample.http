@@ -1,0 +1,82 @@
+### Variables demo - use 'v' to inspect all variables in scope
+
+# File-level variable definitions
+@host = https://jsonplaceholder.typicode.com
+@userId = 1
+
+### Get User via variable
+GET {{host}}/users/{{userId}}
+
+### Create Post with dynamic timestamp
+POST {{host}}/posts
+Content-Type: application/json
+
+{
+  "title": "Post at {{$datetime iso8601}}",
+  "body": "bar",
+  "userId": {{userId}}
+}
+
+### Dynamic variables demo
+GET {{host}}/users/{{userId}}
+X-Request-ID: {{$guid}}
+X-Timestamp: {{$timestamp}}
+
+### Get GitHub API Root
+GET https://api.github.com
+
+### Search Repos
+GET https://api.github.com/search/repositories?q=language:go&sort=stars
+
+### Dummy JSON POST
+POST https://dummyjson.com/products/add
+Content-Type: application/json
+
+{
+  "title": "BMW Pencil"
+}
+
+### Get User (JSON Placeholder)
+GET https://jsonplaceholder.typicode.com/users/1
+
+### Create Post (JSON Placeholder)
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "title": "foo",
+  "body": "bar",
+  "userId": 1
+}
+
+### Update Post (JSON Placeholder)
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "updated title",
+  "body": "updated body",
+  "userId": 1
+}
+
+### Delete Post (JSON Placeholder)
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+### Get Weather (Meteo)
+GET https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true
+
+### Random Duck Image
+GET https://random-d.uk/api/random
+
+### Kanye Rest Quote
+GET https://api.kanye.rest/
+
+### HTTP Bin Get
+GET https://httpbin.org/get
+
+### HTTP Bin Post Form
+POST https://httpbin.org/post
+Content-Type: application/x-www-form-urlencoded
+
+foo=bar&baz=qux

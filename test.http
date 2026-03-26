@@ -1,0 +1,7 @@
+### Get User
+# @name getUser
+GET https://jsonplaceholder.typicode.com/users/1
+
+### Access User Variables
+GET https://example.com/user/{{getUser.response.body.id}}
+Authorization: Bearer {{getUser.response.body.email}}
